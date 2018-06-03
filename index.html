@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>webpack tutorials</title>
+    </head>
+
+    <body>
+        <div id="title"></div>
+        <h1>get接口返回的内容</h1>
+        <div id="get"></div>
+
+        <h1>post接口返回的内容</h1>
+        <div id="post"></div>
+        <script src="./bundle.js"></script>
+        <script src="https://cdn.bootcss.com/jquery/1.12.0/jquery.min.js"></script>
+        <script>
+            // url链接来自于easy-mock网站
+            $.ajax({
+                url: 'https://www.easy-mock.com/mock/59950b30059b9c566dc14155/example/mock',
+                type: 'get',
+                success: function(res){
+                    console.log('get', res);
+                    document.getElementById('get').innerHTML = res.success;
+                }
+            })
+
+            $.ajax({
+                url: 'https://www.easy-mock.com/mock/59950b30059b9c566dc14155/example/mock2',
+                type: 'post',
+                data: {
+
+                },
+                success: function(res){
+                    console.log('post', res);
+                    document.getElementById('post').innerHTML = res.success;
+                },
+            })
+        </script>
+    </body>
+</html>
